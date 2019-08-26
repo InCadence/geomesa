@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
- 
+
     <name>GeoMesa</name>
     <description>A distributed spatio-temporal database built on a number of cloud data storage systems</description>
     <url>http://www.geomesa.org/</url>
@@ -85,8 +85,8 @@
         <accumulo.version>1.7.2</accumulo.version>
         <zookeeper.version>3.4.5</zookeeper.version>
         <thrift.version>0.9.1</thrift.version>
-        <hadoop.version>2.5.2</hadoop.version>
-        <spark.version>2.0.0</spark.version>
+        <hadoop.version>2.7.3</hadoop.version>
+        <spark.version>2.1.0</spark.version>
         <hbase.version>1.2.3</hbase.version>
         <hbase.guava.version>12.0.1</hbase.guava.version>
         <cassandra.version>3.0.0</cassandra.version>
@@ -228,8 +228,8 @@
         <profile>
             <id>accumulo-1.8</id>
             <properties>
-               <accumulo.version>1.8.0</accumulo.version>
-               <thrift.version>0.9.3</thrift.version>
+                <accumulo.version>1.8.0</accumulo.version>
+                <thrift.version>0.9.3</thrift.version>
             </properties>
         </profile>
 
@@ -310,6 +310,16 @@
                     <id>ossrh</id>
                     <url>https://oss.sonatype.org/content/repositories/snapshots</url>
                 </snapshotRepository>
+            </distributionManagement>
+        </profile>
+
+        <profile>
+            <id>inc</id>
+            <distributionManagement>
+                <repository>
+                    <id>nexus-public</id>
+                    <url>http://incadencenexus.incadencecorp.com:8081/nexus/content/repositories/thirdparty/</url>
+                </repository>
             </distributionManagement>
         </profile>
 
@@ -2038,13 +2048,13 @@
                 <groupId>org.apache.parquet</groupId>
                 <artifactId>parquet-hadoop</artifactId>
                 <version>${parquet.version}</version>
-                 <exclusions>
+                <exclusions>
                     <exclusion>
                         <groupId>org.xerial.snappy</groupId>
                         <artifactId>snappy-java</artifactId>
                     </exclusion>
                 </exclusions>
-           </dependency>
+            </dependency>
             <dependency>
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-core-asl</artifactId>
@@ -2176,14 +2186,14 @@
                         <groupId>org.slf4j</groupId>
                         <artifactId>*</artifactId>
                     </exclusion>
-                     <exclusion>
-                         <groupId>io.netty</groupId>
-                         <artifactId>netty-codec</artifactId>
-                     </exclusion>
-                     <exclusion>
-                         <groupId>io.netty</groupId>
-                         <artifactId>netty-transport</artifactId>
-                     </exclusion>
+                    <exclusion>
+                        <groupId>io.netty</groupId>
+                        <artifactId>netty-codec</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.netty</groupId>
+                        <artifactId>netty-transport</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
@@ -2615,7 +2625,7 @@
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>3.1.0</version>
                     <configuration>
-                      <tarLongFileMode>posix</tarLongFileMode>
+                        <tarLongFileMode>posix</tarLongFileMode>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -2899,7 +2909,7 @@
                             <failsOnError>true</failsOnError>
                             <checkstyleRules>
                                 <module name="Checker">
-                                    <module name="NewlineAtEndOfFile" />
+                                    <module name="NewlineAtEndOfFile"/>
                                 </module>
                             </checkstyleRules>
                             <excludes>**/*</excludes>

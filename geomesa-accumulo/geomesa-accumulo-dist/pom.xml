@@ -201,7 +201,8 @@
                         </goals>
                         <phase>package</phase>
                         <configuration>
-			    <attach>true</attach>
+				<attach>true</attach>
+				<appendAssemblyId>false</appendAssemblyId>
                             <finalName>geomesa-accumulo_${scala.binary.version}-${project.version}</finalName>
                             <tarLongFileMode>posix</tarLongFileMode>
                             <descriptors>
